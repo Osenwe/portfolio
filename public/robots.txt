@@ -1,0 +1,15 @@
+# robots.txt for Andrew Benyeogor's Portfolio
+# https://benyeogorosenwe.com
+
+User-agent: *
+Allow: /
+
+# Allow all bots to access the entire site
+# This is a portfolio site and we want search engines to index all public content
+
+# Specify the sitemap location
+Sitemap: https://benyeogorosenwe.com/sitemap.xml
+
+# Disallow any sensitive areas (if applicable)
+# Disallow: /admin/
+# Disallow: /private/
