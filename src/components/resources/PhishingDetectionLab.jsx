@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import { getRandomChallenges, getBalancedChallenges, getChallengesByCategory, getChallengeStats } from '@/data/phishingChallenges';
 
