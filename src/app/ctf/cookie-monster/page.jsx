@@ -1,20 +1,15 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { 
-  CookieIcon,
   UserIcon,
-  ShieldExclamationIcon,
   CheckCircleIcon,
-  XCircleIcon,
   LightBulbIcon,
   EyeIcon,
   EyeSlashIcon,
   TrophyIcon,
   ChevronRightIcon,
-  KeyIcon,
-  ComputerDesktopIcon,
-  CodeBracketIcon,
-  CogIcon
+  CogIcon,
+  CakeIcon
 } from '@heroicons/react/24/outline';
 
 const CookieMonsterChallenge = () => {
@@ -290,7 +285,7 @@ const CookieMonsterChallenge = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
-            <CookieIcon className="w-8 h-8 mr-3 text-blue-600" />
+            <CakeIcon className="w-8 h-8 mr-3 text-blue-600" />
             <h1 className="text-4xl font-bold">Cookie Monster Challenge</h1>
           </div>
           <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
