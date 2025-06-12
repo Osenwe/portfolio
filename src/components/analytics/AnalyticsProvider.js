@@ -1,16 +1,15 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import Script from 'next/script'
 import ConsentBanner from './ConsentBanner'
 import { initializeEssentialAnalytics, trackEssentialPageView } from '@/utils/analytics/tracking'
 import { getAnalyticsConsent, setAnalyticsConsent } from '@/utils/cookies'
 
-// Your Google Analytics Measurement ID
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'
 
-export default function AnalyticsProvider() {
+function AnalyticsCore() {
   const [consent, setConsent] = useState(false)
   const [bannerVisible, setBannerVisible] = useState(false)
   const pathname = usePathname()
@@ -22,19 +21,16 @@ export default function AnalyticsProvider() {
     if (cookieConsent) {
       setConsent(true)
     } else {
-      // Only show banner if consent hasn't been decided yet
       setBannerVisible(true)
     }
     
-    // Initialize essential analytics for all visitors
     initializeEssentialAnalytics();
     
-    // Track initial page view with essential tracking
     const initialPath = pathname || window.location.pathname;
     trackEssentialPageView(initialPath);
-  }, []);
+  }, [pathname]);
 
-  // Track page views when route changes for all visitors
+  // Track page views when route changes
   useEffect(() => {
     if (pathname) {
       let url = pathname
@@ -42,7 +38,6 @@ export default function AnalyticsProvider() {
         url = `${url}?${searchParams.toString()}`
       }
       
-      // Basic page tracking for all visitors
       trackEssentialPageView(url);
     }
   }, [pathname, searchParams]);
@@ -61,13 +56,11 @@ export default function AnalyticsProvider() {
 
   return (
     <>
-      {/* Always load basic GA script for essential tracking */}
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
       
-      {/* Load enhanced GA script if consent is given */}
       {consent && (
         <Script
           id="google-analytics-enhanced"
@@ -85,7 +78,6 @@ export default function AnalyticsProvider() {
         />
       )}
       
-      {/* Consent Banner Component */}
       {bannerVisible && (
         <ConsentBanner 
           onAccept={handleAccept} 
@@ -93,5 +85,13 @@ export default function AnalyticsProvider() {
         />
       )}
     </>
+  )
+}
+
+export default function AnalyticsProvider() {
+  return (
+    <Suspense fallback={<div />}>
+      <AnalyticsCore />
+    </Suspense>
   )
 }
