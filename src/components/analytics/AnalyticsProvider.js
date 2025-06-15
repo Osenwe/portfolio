@@ -54,6 +54,13 @@ function AnalyticsCore() {
     setAnalyticsConsent(false)
   }
 
+   const handleClose = () => {
+    setConsent(false)
+    setBannerVisible(false)
+    setAnalyticsConsent(false)
+  }
+
+
   return (
     <>
       <Script
@@ -82,6 +89,7 @@ function AnalyticsCore() {
         <ConsentBanner 
           onAccept={handleAccept} 
           onDecline={handleDecline} 
+          onClose={handleClose}
         />
       )}
     </>

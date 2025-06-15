@@ -9,14 +9,15 @@ export default function ConsentBanner({ onAccept, onDecline, onClose }) {
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute -top-2 -right-2 w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500"
-          aria-label="Close consent banner"
+          className="absolute -top-2 -right-5 w-8 h-8 bg-gray-600 hover:bg-gray-500 rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-800"
+          aria-label="Close cookie banner"
         >
           <svg 
             className="w-4 h-4" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path 
               strokeLinecap="round" 
@@ -46,7 +47,7 @@ export default function ConsentBanner({ onAccept, onDecline, onClose }) {
               for details on how your data is used.
             </p>
           </div>
-          <div className="flex gap-3 flex-shrink-0">
+          <div className="flex gap-3">
             <button
               onClick={onDecline}
               className="px-4 py-2 border border-gray-600 rounded-md hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors"
@@ -55,7 +56,7 @@ export default function ConsentBanner({ onAccept, onDecline, onClose }) {
             </button>
             <button
               onClick={onAccept}
-              className="px-4 py-2 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+              className="px-4 py-2 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors"
             >
               Enhanced Analytics
             </button>
