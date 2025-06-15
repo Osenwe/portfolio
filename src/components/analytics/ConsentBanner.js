@@ -9,7 +9,7 @@ export default function ConsentBanner({ onAccept, onDecline, onClose }) {
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute -top-2 -right-5 w-8 h-8 bg-gray-600 hover:bg-gray-500 rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-800"
+          className="absolute -top-2 -right-4 w-8 h-8 bg-gray-600 hover:bg-gray-500 rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-800"
           aria-label="Close cookie banner"
         >
           <svg 
