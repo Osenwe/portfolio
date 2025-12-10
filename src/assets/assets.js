@@ -94,13 +94,13 @@ export const workData = [
         description: 'Recipe Manager Application',
         bgImage: '/work-1.png',
         link: 'www.savordeck.com',
-    },
+    } /*,
    {
         title: 'Geo based app',
         description: 'Mobile App',
         bgImage: '/work-2.png',
         link: '#',
-    },
+    } */,
 ]
 
 export const serviceData = [
@@ -109,14 +109,14 @@ export const serviceData = [
         title: 'Data Analytics & Insights',
         description: 'Delivering data-driven solutions by analyzing trends and translating metrics into strategic business actions using Python, SQL, and BI tools.',
         link: ''
-    },
+    }, /*
     {
         icon: assets.management_icon,
         title: 'Project Management',
         description: 'Managing tech and analytics projects from planning to execution with a focus on efficiency, stakeholder communication, and timely delivery.',
         link: ''
-    }
-   /* {
+    },
+   {
         icon: assets.backend_icon,
         title: 'Backend Development',
         description: 'Building and maintaining robust server-side applications using Django and relational databases like MySQL.',
@@ -160,7 +160,7 @@ export const toolsData = [
 // My research papers array
 export const researchPapers = [
     {
-      title: "Trust as a mediator in Nigerian e-commerce ...",
+      title: "Trust as a mediator in Nigerian e-commerce: Impacts on consumer behavior, product quality, and convenience",
       journal: "Open Journal of Business and Management",
       year: "2025",
       abstract: "This research examines the role of trust as a mediating factor in Nigerian e-commerce ecosystems, analyzing its effects on consumer behavior, product quality perception, and convenience factors. The study provides insights into the unique challenges and opportunities within the Nigerian digital marketplace.",
@@ -169,16 +169,26 @@ export const researchPapers = [
       doi: "10.4236/ojbm.2025.131016"
     },
     {
-      title: "Prototyping and Conceptualizing Electric Model Vehicles...",
-      journal: "IEEE German Education Conference (GECon)",
-      year: "2023",
-      abstract: "This paper presents a framework for prototyping electric model vehicles as educational tools to enhance automotive STEM education with a focus on sustainable e-mobility. The research demonstrates how practical engineering projects can strengthen technical education and promote environmental awareness.",
-      thumbnail: assets.education_icon, // Replace with appropriate icon
-      pdfLink: "https://ieeexplore.ieee.org/document/10295128",
-      doi: "IEEE GECon 2023"
+      title: "An Intelligent Phishing Detection Mechanism Using Machine Learning Algorithms",
+      journal: "Journal of Data Science and Intelligent Systems",
+      year: "2025",
+      abstract: "This paper presents an intelligent phishing detection mechanism leveraging machine learning algorithms to identify and mitigate phishing attacks. The research demonstrates how advanced computational techniques can enhance cybersecurity measures and protect users from fraudulent online activities.",
+      thumbnail: assets.security_icon, // Replace with appropriate icon
+      pdfLink: "/papers/phishing-detection.pdf", // Update with actual link
+      doi: "Accepted for publication",
+      status: "Accepted"
     },
     {
-      title: "Desktop Factory: A Laboratory-scale Multisignal...",
+      title: "Development of Microcontroller-Based Manipulator Arm: A Trilemma Problem-Solving Framework for Robotics and STEM Education in Nigerian Schools",
+      journal: "XVI Technologies Applied to Electronics Teaching Conference (TAEE)",
+      year: "2024",
+      abstract: "This research presents the development of a microcontroller-based manipulator arm as a teaching tool, addressing the trilemma of accessibility, functionality, and cost-effectiveness in robotics education for Nigerian schools. The framework provides a practical approach to introducing robotics concepts in resource-constrained educational environments.",
+      thumbnail: assets.stem_icon, // Replace with appropriate icon
+      pdfLink: "https://doi.org/10.1109/TAEE59541.2024.10604968",
+      doi: "10.1109/TAEE59541.2024.10604968"
+    },
+    {
+      title: "Desktop Factory: A Laboratory-scale Multisignal RF/PID-based Automation Framework for Industrial Telematics and Control Experiments",
       journal: "XVI Technologies Applied to Electronics Teaching Conference (TAEE)",
       year: "2024",
       abstract: "This research introduces a laboratory-scale desktop factory system utilizing RF/PID-based automation for industrial telematics and control experiments. The framework provides an accessible platform for teaching automation concepts, wireless communication, and control systems in educational settings.",
@@ -187,21 +197,40 @@ export const researchPapers = [
       doi: "10.1109/TAEE59541.2024.10604887"
     },
     {
-      title: "Algorithmic Framework for Analyzing and Simulating Multi-Axial ...",
+      title: "Advancing Embedded Systems Education: A Pedagogical Programming Framework for Smart System and Control Applications",
+      journal: "SPC Journal of Education",
+      year: "2024",
+      abstract: "This paper presents a pedagogical framework for teaching embedded systems programming through smart system and control applications. The research addresses the growing need for effective educational approaches in embedded systems, providing practical methodologies for preparing students for careers in IoT and automation technologies.",
+      thumbnail: assets.embedded_systems_icon, // Replace with appropriate icon
+      pdfLink: "https://www.sciencepubco.com/index.php/JE", // Update with direct PDF link if available
+      doi: "SPC Journal of Education, Vol. 5, No. 1"
+    },
+    {
+      title: "Prototyping and Conceptualizing Electric Model Vehicles to Enhance Automotive STEM Education: Towards Sustainable E-mobility",
+      journal: "IEEE German Education Conference (GECon)",
+      year: "2023",
+      abstract: "This paper presents a framework for prototyping electric model vehicles as educational tools to enhance automotive STEM education with a focus on sustainable e-mobility. The research demonstrates how practical engineering projects can strengthen technical education and promote environmental awareness.",
+      thumbnail: assets.education_icon, // Replace with appropriate icon
+      pdfLink: "https://ieeexplore.ieee.org/document/10295128",
+      doi: "IEEE GECon 2023"
+    },
+    {
+      title: "Algorithmic Framework for Analyzing and Simulating Multi-Axial Robotic Transformations in Spatial Coordinates",
       journal: "IEEE International Conference on Robotic Computing (IRC)",
       year: "2023",
       abstract: "This paper presents an algorithmic framework for analyzing and simulating multi-axial robotic transformations in spatial coordinates. The research provides mathematical foundations and computational methods for modeling complex robotic movements and transformations in three-dimensional space.",
       thumbnail: assets.robotics_icon, // Replace with appropriate icon
       pdfLink: "https://doi.org/10.1109/IRC59093.2023.00034",
       doi: "10.1109/IRC59093.2023.00034"
-    },
+    } /*,
     {
-      title: "Development of Microcontroller-Based Manipulator Arm ...",
-      journal: "XVI Technologies Applied to Electronics Teaching Conference (TAEE)",
+      title: "Building Apps with Tkinter",
+      journal: "Educational Book (In Press)",
       year: "2024",
-      abstract: "This research presents the development of a microcontroller-based manipulator arm as a teaching tool, addressing the trilemma of accessibility, functionality, and cost-effectiveness in robotics education for Nigerian schools. The framework provides a practical approach to introducing robotics concepts in resource-constrained educational environments.",
-      thumbnail: assets.stem_icon, // Replace with appropriate icon
-      pdfLink: "https://doi.org/10.1109/TAEE59541.2024.10604968",
-      doi: "10.1109/TAEE59541.2024.10604968"
-    }
+      abstract: "A comprehensive guide to building graphical user interface applications using Python's Tkinter library. This educational resource provides practical examples and methodologies for teaching GUI development, making application programming accessible to students and educators at various skill levels.",
+      thumbnail: assets.book_icon, // Replace with appropriate icon
+      pdfLink: "https://pressbooks.pub/tkintergui/",
+      doi: "ISBN: In Press",
+      type: "book"
+    } */
   ]
