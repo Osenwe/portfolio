@@ -10,8 +10,9 @@ import { getAnalyticsConsent, setAnalyticsConsent } from '@/utils/cookies'
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'
 
 function AnalyticsCore() {
-  const [consent, setConsent] = useState(false)
-  const [bannerVisible, setBannerVisible] = useState(false)
+  // I have set the consent to 
+  const [consent, setConsent] = useState(true)
+  const [bannerVisible, setBannerVisible] = useState(true)
   const pathname = usePathname()
   const searchParams = useSearchParams()
 

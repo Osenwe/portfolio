@@ -49,7 +49,7 @@ export const AMAZON_LINKS = {
   PUSH_BUTTONS: 'https://amazon.com/dp/B07C7211PJ',
   
   // Learning Resources
-  PYTHON_AUTOMATE_BOOK: 'https://amazon.com/dp/1593279280',
+  PYTHON_AUTOMATE_BOOK: 'https://www.w3schools.com/python/',
   WEB_SECURITY_BOOK: 'https://amazon.com/dp/1118026470'
 };
 
@@ -136,7 +136,7 @@ export const QUICK_LINK_TEMPLATES = {
   pythonSource: (projectName) => ({
     type: 'codehs',
     label: 'View Source Code',
-    url: `${PLATFORM_LINKS.CODEHS_BASE}/python/${projectName}`
+    url: `${PLATFORM_LINKS.CODEHS_BASE}/${projectName}`
   }),
   
   // Amazon product recommendation
@@ -179,27 +179,23 @@ export const LEARNING_OUTCOMES = {
   ARDUINO_SENSORS: [
     'Analog sensor reading and processing',
     'Sensor calibration techniques',
-    'Data validation and error handling',
-    'Serial monitor debugging'
+    'Data validation',
+    'Serial monitor for debugging'
   ],
   
   ARDUINO_DISPLAY: [
     'LCD display programming and control',
-    'User interface design principles',
     'Real-time data monitoring'
   ],
   
   ARDUINO_AUTOMATION: [
     'State machine programming',
     'Automated control systems',
-    'Safety features and fail-safes',
-    'Industrial automation principles'
   ],
   
   PYTHON_BASIC: [
     'Algorithm development and optimization',
     'Data validation and error handling',
-    'File I/O operations and data export',
     'User experience design principles'
   ],
   
@@ -259,24 +255,18 @@ export const FEATURE_SETS = {
   ],
   
   LCD_INTERFACE: [
-    'Multi-screen display cycling',
     'Real-time data updates',
     'User-friendly information layout',
     'Status indicators'
   ],
   
   AUTOMATION_CONTROL: [
-    'Automatic operation mode',
-    'Manual override capability',
-    'Safety features and alarms',
-    'Configurable thresholds'
+    'Automatic operation mode'
   ],
   
   PYTHON_APP_BASIC: [
     'Modern GUI interface',
-    'Input validation and error handling',
-    'Data export capabilities',
-    'User-friendly design'
+    'Input validation and error handling'
   ],
   
   DATA_ANALYSIS: [
@@ -288,9 +278,7 @@ export const FEATURE_SETS = {
   
   CTF_CHALLENGE: [
     'Progressive difficulty levels',
-    'Interactive learning experience',
-    'Instant feedback system',
-    'Educational content integration'
+    'Instant feedback system'
   ]
 };
 
@@ -299,7 +287,7 @@ export const TAG_SETS = {
   ARDUINO_BASIC: ['arduino', 'beginner', 'electronics'],
   ARDUINO_SENSORS: ['arduino', 'sensor', 'monitoring'],
   ARDUINO_DISPLAY: ['arduino', 'lcd', 'display'],
-  ARDUINO_AUTOMATION: ['arduino', 'automation', 'control'],
+  ARDUINO_AUTOMATION: ['arduino', 'automation'],
   PYTHON_BASIC: ['python', 'gui', 'beginner'],
   PYTHON_ADVANCED: ['python', 'data-analysis', 'visualization'],
   CYBERSECURITY: ['cybersecurity', 'web-security', 'ethical-hacking'],

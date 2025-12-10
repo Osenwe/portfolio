@@ -40,7 +40,7 @@ export default function ResourcePage() {
       } catch (error) {
         console.log('Analytics error (non-critical):', error);
       }
-    }
+    } 
   }, [project]);
 
   // Track link clicks

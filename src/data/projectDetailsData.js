@@ -294,10 +294,10 @@ This project is perfect for understanding how environmental monitoring systems w
 const project4 = createDetailedProject(
   buildArduinoProject({
     id: 4,
-    title: 'Smart Automated Bin System',
+    title: 'Automated Bin System',
     difficulty: DIFFICULTY_LEVELS.INTERMEDIATE,
     timeEstimate: TIME_ESTIMATES.LONG,
-    projectName: 'smart-bin-system',
+    projectName: '4Xep6bp7JfE-servo-bins?sharecode=eyWPYIF8WntbdnFsuQVC-PR14q7RbZiBsGBq9sAeSBc',
     sensors: [
       { name: 'HC-SR04 Ultrasonic Sensor', amazonLink: AMAZON_LINKS.ULTRASONIC_HC_SR04 }
     ],
@@ -333,7 +333,7 @@ const project4 = createDetailedProject(
 The system uses an ultrasonic sensor to detect approaching people, a servo motor to smoothly open and close the lid, and an LCD display to show real-time distance measurements and system status. You'll learn about sensor fusion, mechanical control, and user interface design.
 
 This project demonstrates practical IoT applications, introduces automation concepts, and can be enhanced with features like fill-level monitoring, data logging, and smartphone connectivity. It's perfect for understanding how smart home devices work.`,
-    image: '/images/resources/smart-bin.jpg',
+    image: assets.smntbin,
     cost: '$35-45'
   }
 );
@@ -429,25 +429,24 @@ const project7 = createDetailedProject(
     projectType: 'apcsp',
     difficulty: DIFFICULTY_LEVELS.BEGINNER,
     timeEstimate: TIME_ESTIMATES.MEDIUM,
-    projectName: 'leap-year-calculator',
+    projectName: 'id/leapyear-m32lPu',
     libraries: ['ttkbootstrap'],
     customFeatures: [
       'Calculate individual leap years',
-      'Generate leap year ranges',
-      'Statistical analysis of patterns',
-      'Export to CSV and TXT formats',
-      'Modern, responsive interface'
+      'Generate leap year ranges for display in screen',
+      'Export to CSV and TXT formats - advanced output',
+      'Responsive User interface'
     ],
-    relatedProjects: [8, 9, 10]
+    relatedProjects: [8, 9]
   }),
   {
-    description: 'Advanced leap year calculator that generates lists of leap years between any two given years. Features data export, statistical analysis, and modern GUI with ttkbootstrap.',
+    description: 'Leap year calculator that generates lists of leap years between any two given years. Features data export, statistical analysis, and modern GUI with ttkbootstrap. Very suitable as an AP create task project',
     overview: `Create a comprehensive leap year calculator that goes far beyond basic calculations! This project demonstrates algorithm development, data analysis, and modern GUI design principles.
 
 Your calculator will not only determine if individual years are leap years, but also generate complete lists of leap years within any date range. The application includes statistical analysis features and professional data export capabilities.
 
-This project is perfect for the APCSP Create Task, showcasing computational thinking, data representation, and user interface design. You'll work with mathematical algorithms, file I/O, and data visualization.`,
-    image: '/images/resources/leap-year-calc.jpg',
+This project is perfect for the APCSP Create Task, showcasing computational thinking, data representation, and user interface design.`,
+    image: assets.leapyear_ques,
     cost: 'Free (Python required)'
   }
 );
@@ -459,22 +458,20 @@ const project8 = createDetailedProject(
     projectType: 'apcsp',
     difficulty: DIFFICULTY_LEVELS.INTERMEDIATE,
     timeEstimate: TIME_ESTIMATES.PROJECT,
-    projectName: 'recipe-manager',
+    projectName: 'id/recipemanager-z6A3gt',
     libraries: ['ttkbootstrap', 'json'],
     customFeatures: [
-      'Recipe database management',
-      'Ingredient tracking',
-      'Meal planning features',
-      'Nutrition calculations',
-      'Recipe sharing capabilities'
+      'Add Recipes',
+      'View Recipes',
+      'Delete Recipes'
     ],
     relatedProjects: [7, 9, 11]
   }),
   {
-    description: 'Comprehensive recipe management system with ingredient tracking, meal planning, and nutrition calculations. Perfect for organizing family recipes.',
-    overview: `Build a complete digital cookbook that helps organize, search, and manage your favorite recipes! This project teaches database concepts, CRUD operations, and practical application development.
+    description: 'A basic recipe management system for beginners',
+    overview: `Build a digital cookbook that helps organize, search, and manage your favorite recipes! This project teaches basic CRUD operations, and practical application development.
 
-The recipe manager allows you to store recipes with ingredients, instructions, nutritional information, and photos. You can search by ingredients, create meal plans, generate shopping lists, and even calculate nutritional values for your meals.
+The recipe manager allows you to store recipes with ingredients, instructions, nutritional information, and photos.
 
 This project demonstrates real-world software development practices and is perfect for learning about data structures, file management, and user interface design. It's also great for the APCSP Create Task with clear data representation and algorithm implementation.`,
     image: '/images/resources/recipe-manager.jpg',

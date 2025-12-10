@@ -39,7 +39,7 @@ export const resourcesData = [
     title: 'Ultrasonic Distance Sensor Alarm',
     author: 'Intermediate Arduino Project',
     description: 'Create a proximity alarm system using an ultrasonic sensor. Features adjustable sensitivity and both visual and audio alerts.',
-    image: '/images/resources/ultrasonic-alarm.jpg',
+    image: assets.ultrasound,
     rating: 5,
     difficulty: 'intermediate',
     estimatedTime: '3-4 hours',
@@ -109,7 +109,7 @@ export const resourcesData = [
     title: 'Smart Automated Bin System',
     author: 'Intermediate Arduino Project',
     description: 'Automated smart trash bin with ultrasonic motion detection, servo-controlled lid opening, and LCD display showing distance measurements. Opens automatically when someone approaches and displays real-time proximity data.',
-    image: '/images/resources/smart-bin.jpg',
+    image: assets.smntbin,
     rating: 4,
     difficulty: 'intermediate',
     estimatedTime: '6-8 hours',
@@ -134,13 +134,8 @@ export const resourcesData = [
     links: [
       {
         type: 'circuit-diagram',
-        url: 'https://www.tinkercad.com/things/smart-bin-system',
+        url: 'https://www.tinkercad.com/things/4Xep6bp7JfE/editel?sharecode=0e0NfeTg5obNkaQ9EynnwC-yjk2yBrPPPvjVnc2lObY',
         label: 'View Circuit on Tinkercad'
-      },
-      {
-        type: 'code',
-        url: 'https://github.com/yourusername/smart-bin-system',
-        label: 'Download Arduino Code'
       }
     ]
   },
@@ -222,10 +217,10 @@ export const resourcesData = [
   {
     id: 7,
     category: 'python-apps',
-    title: 'Leap Year Calculator Pro',
-    author: 'APCSP Create Task Project',
+    title: 'Leap Year Calculator Pro - AP CSP',
+    author: 'Created by my students and improved by me',
     description: 'Advanced leap year calculator that generates lists of leap years between any two given years. Features data export, statistical analysis, and modern GUI with ttkbootstrap.',
-    image: '/images/resources/leap-year-calc.jpg',
+    image: assets.leapyear_ques,
     rating: 4,
     difficulty: 'beginner',
     estimatedTime: '3-4 hours',
@@ -233,13 +228,8 @@ export const resourcesData = [
     links: [
       {
         type: 'source-code',
-        url: 'https://github.com/yourusername/leap-year-calculator',
+        url: 'https://codehs.com/sandbox/id/leapyear-m32lPu',
         label: 'View Source Code'
-      },
-      {
-        type: 'executable',
-        url: '/downloads/leap-year-calculator.exe',
-        label: 'Download Executable'
       }
     ]
   },
@@ -247,8 +237,8 @@ export const resourcesData = [
   {
     id: 8,
     category: 'python-apps',
-    title: 'Digital Recipe Manager',
-    author: 'APCSP Create Task Project',
+    title: 'Digital Recipe Manager - AP CSP',
+    author: 'Andrew Benyeogor',
     description: 'Comprehensive recipe management system with ingredient tracking, meal planning, and nutrition calculations. Perfect for organizing family recipes.',
     image: '/images/resources/recipe-manager.jpg',
     rating: 5,
@@ -258,7 +248,7 @@ export const resourcesData = [
     links: [
       {
         type: 'source-code',
-        url: 'https://github.com/yourusername/recipe-manager',
+        url: 'https://codehs.com/sandbox/id/recipemanager-z6A3gt',
         label: 'View Source Code'
       },
       {
@@ -272,8 +262,8 @@ export const resourcesData = [
   {
     id: 9,
     category: 'python-apps',
-    title: 'Student GPA Calculator & Tracker',
-    author: 'APCSP Create Task Project',
+    title: 'Student GPA Calculator & Tracker - AP CSP',
+    author: 'Andrew Benyeogor',
     description: 'Complete GPA management system for students. Track grades across multiple semesters, visualize progress, and generate academic reports.',
     image: '/images/resources/gpa-calculator.jpg',
     rating: 4,
@@ -294,7 +284,7 @@ export const resourcesData = [
     ]
   },
 
-  {
+  /*{
     id: 10,
     category: 'python-apps',
     title: 'Personal Finance Tracker',
@@ -342,7 +332,7 @@ export const resourcesData = [
         label: 'Setup Guide'
       }
     ]
-  },
+  }, 
 
   {
     id: 12,
@@ -392,7 +382,7 @@ export const resourcesData = [
         label: 'Security Guide'
       }
     ]
-  },
+  },*/
 
   // ==================== CYBERSECURITY CTF CHALLENGES ====================
   

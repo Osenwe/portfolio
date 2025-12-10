@@ -41,6 +41,9 @@ import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
 import traffic_light from './traffic_light.png';
 import ultrasound from './ultrasonic.png';
+import leapyear_ques from './leapyear_ques.png';
+import smntbin from './smtbin.png';
+import smntbin_circuit from './smtbin_circuit.png';
 
 
 export const assets = {
@@ -81,7 +84,8 @@ export const assets = {
     right_arrow_bold,
     right_arrow_bold_dark,
     tableau, p6, msproject, excel, pycharm,
-    traffic_light, ultrasound
+    traffic_light, ultrasound, leapyear_ques,
+    smntbin, smntbin_circuit
 };
 
 export const workData = [
