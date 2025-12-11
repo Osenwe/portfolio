@@ -64,8 +64,8 @@ const Header = () => {
       whileInView={{opacity: 1}}
       transition={{duration: 0.6, delay: 0.7}}
       className='max-w-2xl mx-auto font-Ovo'>
-        I am an Information Systems professional with expertise in data analytics, SAP ERP, and use of various project management softwares, such as primavera p6 and Microsoft Project for schedulling projects.
-      </motion.p>
+        CTE Education || Data Analytics || Agriculture 
+        </motion.p>
 
       <div className='flex flex-col sm:flex-row items-center gap-4 mt-4'>
         <motion.a 

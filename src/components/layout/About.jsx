@@ -42,7 +42,8 @@ const About = ({isDarkMode}) => {
             transition={{duration: 0.6, delay: 0.8}}
             className='flex-1'>
                 <p className='mb-10 max-w-2xl font-Ovo'>
-                I am an Information Systems professional with expertise in data analytics, SAP ERP, and use of various project management softwares, such as primavera p6 and Microsoft Project for schedulling projects. </p>
+                     Currently, I am a Computer Science teacher at the International Leadership of Texas. Over the past three years, I have taught various Career Technical Education courses. My academic history started with a bachelor's in Agricultural economics; however, I saw developing my Information Technology skills as a necessary journey, thus I got my masters in Information Systems - an achievement that I am really proud of, and I would like to teach others. 
+                </p>
                 <motion.ul
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
