@@ -1,9 +1,9 @@
-import { assets } from '@/assets/assets'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import { assets } from '@/assets/assets';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
-import { portfolioEvents, gameEvents} from '@/utils/analytics/tracking'
+import { portfolioEvents, gameEvents, blogEvents } from '@/utils/analytics/tracking';
 
 const Footer = ({isDarkMode}) => {
   // Function to handle social media clicks
@@ -11,6 +11,15 @@ const Footer = ({isDarkMode}) => {
     // This will only track detailed interactions if the user gave consent
     portfolioEvents.clickSocialMedia(platform);
   };
+
+ // Function to handle blog posts
+  const handleBlogClick = () => {
+  try {
+    blogEvents.navigateToBlog('footer');
+  } catch (error) {
+    console.log('Analytics error (non-critical):', error);
+  }
+};
 
   // Function to handle games page click
   const handleGamesClick = () => {
@@ -110,6 +119,38 @@ const Footer = ({isDarkMode}) => {
               {/* Hover gradient overlay */}
               <div className='absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 transform -skew-x-12'></div>
             </Link>
+
+            {/* Blog Link with Enhanced Design - Mobile Optimized */}
+            <Link 
+              href="/blog" 
+              onClick={handleBlogClick}
+              className='group relative inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-4 sm:py-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-xs sm:max-w-none'
+            >
+              {/* Blog Icon */}
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-5 w-5 sm:h-4 sm:w-4 group-hover:animate-pulse flex-shrink-0" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                />
+              </svg>
+              
+              <span className='relative text-base sm:text-sm'>
+                Blog
+                {/* Sparkle effect - hidden on very small screens */}
+                <span className='hidden sm:block absolute -top-1 -right-1 w-2 h-2 bg-yellow-300 rounded-full animate-ping opacity-75'></span>
+              </span>
+              
+              {/* Hover gradient overlay */}
+              <div className='absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 transform -skew-x-12'></div>
+            </Link>
             
             {/* Regular Internal Links - Mobile Optimized */}
             <div className='flex items-center gap-6 sm:gap-6'>
@@ -191,6 +232,32 @@ const Footer = ({isDarkMode}) => {
                     <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
                   </svg>
                   <span className='truncate'>Scholar</span>
+                </a>
+              </li>
+              <li className='w-full sm:w-auto'>
+                <a  
+                  target='_blank' 
+                  href="https://share.streamlit.io/user/osenwe"  
+                  onClick={() => handleSocialClick('Streamlit')}
+                  className='group relative inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-sm'
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0L1.608 6v12L12 24l10.392-6V6L12 0zm-1.2 18.553v-7.098l-3.6 2.079v6.019H5.5V8.447l6.5-3.75 6.5 3.75v11.106h-1.7v-6.019l-3.6-2.079v7.098H10.8z"/>
+                  </svg>
+                  <span className='truncate'>Streamlit</span>
+                </a>
+              </li>
+              <li className='w-full sm:w-auto'>
+                <a  
+                  target='_blank' 
+                  href="https://www.researchgate.net/profile/Andrew-Benyeogor?ev=hdr_xprf"  
+                  onClick={() => handleSocialClick('ResearchGate')}
+                  className='group relative inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-sm'
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+                  </svg>
+                  <span className='truncate'>ResearchGate</span>
                 </a>
               </li>
             </ul>

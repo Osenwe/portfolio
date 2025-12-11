@@ -127,6 +127,53 @@ export const researchEvents = {
   }
 }
 
+// Blog-specific tracking events
+export const blogEvents = {
+  // Track when someone views the blog page
+  viewBlogPage: () => {
+    trackEvent('view_blog_page', 'blog', 'blog_landing')
+  },
+  
+  // Track when someone clicks to navigate to blog from different locations
+  navigateToBlog: (source) => {
+    trackEvent('navigate_to_blog', 'blog', source) // 'footer', 'header', 'content', etc.
+  },
+  
+  // Track when someone reads a blog post
+  readBlogPost: (postTitle) => {
+    trackEvent('read_post', 'blog', postTitle)
+  },
+  
+  // Track when someone clicks on a blog post
+  clickBlogPost: (postTitle, postUrl) => {
+    trackEvent('click_post', 'blog', postTitle, null, {
+      post_url: postUrl
+    })
+  },
+  
+  // Track blog post categories
+  viewCategory: (categoryName) => {
+    trackEvent('view_category', 'blog', categoryName)
+  },
+  
+  // Track time spent on blog posts
+  timeOnPost: (postTitle, timeSpent) => {
+    trackEvent('time_on_post', 'blog', postTitle, timeSpent)
+  },
+  
+  // Track when someone shares a blog post
+  shareBlogPost: (postTitle, platform) => {
+    trackEvent('share_post', 'blog', postTitle, null, {
+      platform: platform // 'twitter', 'linkedin', 'facebook', etc.
+    })
+  },
+  
+  // Track blog search usage
+  searchBlog: (searchTerm) => {
+    trackEvent('search_blog', 'blog', searchTerm)
+  }
+}
+
 export const gameEvents = {
   // Track when someone reaches the 404 page with games
   view404Page: () => {
