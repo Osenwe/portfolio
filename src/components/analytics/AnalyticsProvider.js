@@ -10,18 +10,19 @@ import { getAnalyticsConsent, setAnalyticsConsent } from '@/utils/cookies'
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'
 
 function AnalyticsCore() {
-  // I have set the consent to 
-  const [consent, setConsent] = useState(true)
-  const [bannerVisible, setBannerVisible] = useState(true)
+  const [consent, setConsent] = useState(false)
+  const [bannerVisible, setBannerVisible] = useState(false)
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  // Check for existing consent on mount
+  // Check for existing consent on mount ONLY ONCE
   useEffect(() => {
     const cookieConsent = getAnalyticsConsent()
     if (cookieConsent) {
       setConsent(true)
+      setBannerVisible(false)
     } else {
+      setConsent(false)
       setBannerVisible(true)
     }
     
@@ -29,7 +30,7 @@ function AnalyticsCore() {
     
     const initialPath = pathname || window.location.pathname;
     trackEssentialPageView(initialPath);
-  }, [pathname]);
+  }, []); // Empty dependency array - only run once on mount
 
   // Track page views when route changes
   useEffect(() => {

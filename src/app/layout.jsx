@@ -24,12 +24,12 @@ export default function RootLayout({ children }) {
         className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden dark:bg-darkTheme dark:text-white`  }  
                 suppressHydrationWarning={true}>
                   
-        {/*<AnalyticsProvider/>*/}
-        {/*<AnalyticsWrapper >*/}
+        <AnalyticsProvider/>
+        <AnalyticsWrapper >
           <Providers>
             {children}
           </Providers>
-        {/*</AnalyticsWrapper>*/}
+        </AnalyticsWrapper>
 
       </body>
     </html>
