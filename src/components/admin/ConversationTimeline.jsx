@@ -21,7 +21,7 @@ export default function ConversationTimeline({ message }) {
       timestamp: message.date,
       preview: message.subject,
     },
-    ...[...message.replies]
+    ...[...(message.replies || [])]
       .sort((a, b) => new Date(a.sentAt) - new Date(b.sentAt))
       .map((reply) => ({
         id: reply.id,

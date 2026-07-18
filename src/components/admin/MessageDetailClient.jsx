@@ -55,9 +55,13 @@ export default function MessageDetailClient({ id }) {
     let isMounted = true;
     setIsLoading(true);
     setNotFound(false);
+    setAdjacentIds({ prevId: null, nextId: null });
 
-    async function load() {
-      const [found, all] = await Promise.all([getMessage(id), getMessages()]);
+    // The message itself loads independently of the full messages list below,
+    // so the body renders as soon as it's available instead of waiting on
+    // the (much larger, and much slower on mobile) full list fetch.
+    async function loadMessage() {
+      const found = await getMessage(id);
       if (!isMounted) return;
 
       if (!found) {
@@ -65,13 +69,6 @@ export default function MessageDetailClient({ id }) {
         setIsLoading(false);
         return;
       }
-
-      const ordered = [...all].sort((a, b) => new Date(b.date) - new Date(a.date));
-      const index = ordered.findIndex((m) => m.id === id);
-      setAdjacentIds({
-        prevId: index > 0 ? ordered[index - 1].id : null,
-        nextId: index >= 0 && index < ordered.length - 1 ? ordered[index + 1].id : null,
-      });
 
       // Opening a message marks it read, same as most email clients.
       if (found.status === 'unread') {
@@ -83,7 +80,22 @@ export default function MessageDetailClient({ id }) {
       setIsLoading(false);
     }
 
-    load();
+    // Prev/next navigation is a nice-to-have that needs the full list -
+    // fetched separately so it never blocks showing the message content.
+    async function loadAdjacentIds() {
+      const all = await getMessages();
+      if (!isMounted) return;
+
+      const ordered = [...all].sort((a, b) => new Date(b.date) - new Date(a.date));
+      const index = ordered.findIndex((m) => m.id === id);
+      setAdjacentIds({
+        prevId: index > 0 ? ordered[index - 1].id : null,
+        nextId: index >= 0 && index < ordered.length - 1 ? ordered[index + 1].id : null,
+      });
+    }
+
+    loadMessage();
+    loadAdjacentIds();
     return () => {
       isMounted = false;
     };
