@@ -362,7 +362,7 @@ const CipherChallenge = () => {
   const totalChallenges = Object.keys(cipherScores).reduce((sum, cipher) => sum + cipherChallenges[cipher].challenges.length, 0);
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`min-h-screen ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         
         {/* Header */}

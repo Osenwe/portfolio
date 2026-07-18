@@ -125,7 +125,7 @@ export default function ResourcePage() {
   return (
     <>
       <Navbar />
-      <main className={`min-h-screen pt-20 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      <main className={`min-h-screen pt-20 ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
         <div className="container mx-auto px-4 py-8">
           
           {/* Breadcrumb Navigation */}

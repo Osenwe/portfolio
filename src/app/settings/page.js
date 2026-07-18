@@ -14,9 +14,9 @@ export default function SettingsPage() {
     <>
       <Navbar />
       <main className={`min-h-screen pt-20 ${
-        isDarkMode 
-          ? 'bg-gray-900' 
-          : 'bg-gray-50'
+        isDarkMode
+          ? 'bg-darkTheme'
+          : 'bg-white'
       }`}>
         <div className="container mx-auto px-4 py-12 max-w-4xl">
           <h1 className={`text-3xl font-bold mb-8 ${

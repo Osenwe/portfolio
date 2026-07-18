@@ -30,7 +30,7 @@ const BlogPost = () => {
     return (
       <>
         <Navbar />
-        <main className={`min-h-screen py-12 pt-20 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+        <main className={`min-h-screen py-12 pt-20 ${isDarkMode ? 'bg-darkTheme' : 'bg-white'}`}>
           <div className="container mx-auto px-4 text-center">
             <h1 className={`text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
               Coming Soon !!!!!!!!!!
@@ -69,7 +69,7 @@ const BlogPost = () => {
   return (
     <>
       <Navbar />
-      <main className={`min-h-screen py-12 pt-20 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+      <main className={`min-h-screen py-12 pt-20 ${isDarkMode ? 'bg-darkTheme' : 'bg-white'}`}>
         <article className="container mx-auto px-4 max-w-4xl">
           {/* Back Button */}
           <button

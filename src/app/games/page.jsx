@@ -31,9 +31,9 @@ const GamesPage = () => {
     <>
     <Navbar />
     <main className={`min-h-screen ${
-      isDarkMode 
-        ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900 text-white' 
-        : 'bg-gradient-to-br from-blue-50 via-white to-purple-50 text-gray-900'
+      isDarkMode
+        ? 'bg-darkTheme text-white'
+        : 'bg-white text-gray-900'
     } pt-20`}>
       {/* Animated background objects */}
       <FloatingObjects />
@@ -88,8 +88,8 @@ const GamesPage = () => {
                 </svg>
                 Home
               </Link>
-              <Link 
-                href="/projects"
+              <Link
+                href="/#work"
                 className={`font-medium inline-flex items-center transition-colors px-4 py-2 rounded-md ${
                   isDarkMode 
                     ? 'text-purple-400 hover:text-purple-300 hover:bg-purple-900/30' 
@@ -101,8 +101,8 @@ const GamesPage = () => {
                 </svg>
                 Projects
               </Link>
-              <Link 
-                href="/about"
+              <Link
+                href="/#about"
                 className={`font-medium inline-flex items-center transition-colors px-4 py-2 rounded-md ${
                   isDarkMode 
                     ? 'text-green-400 hover:text-green-300 hover:bg-green-900/30' 
@@ -142,15 +142,9 @@ const GamesPage = () => {
               <h3 className={`text-2xl font-bold mb-4 ${
                 isDarkMode ? 'text-white' : 'text-gray-800'
               }`}>
-                Built with Modern Web Technologies
+                Built with Next.js, HTML5 Canvas and, Tailwind CSS
               </h3>
-              <p className={`mb-6 ${
-                isDarkMode ? 'text-gray-300' : 'text-gray-600'
-              }`}>
-                These games are built using React, Next.js, and HTML5 Canvas. 
-                They showcase interactive programming, game logic, and responsive design principles.
-              </p>
-              
+          
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                 <div className="flex flex-col items-center">
                   <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-2">

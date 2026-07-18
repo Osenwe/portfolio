@@ -42,7 +42,7 @@ const About = ({isDarkMode}) => {
             transition={{duration: 0.6, delay: 0.8}}
             className='flex-1'>
                 <p className='mb-10 max-w-2xl font-Ovo'>
-                     Currently, I am a Computer Science teacher at the International Leadership of Texas. Over the past three years, I have taught various Career Technical Education courses. My academic history started with a bachelor's in Agricultural economics; however, I saw developing my Information Technology skills as a necessary journey, thus I got my masters in Information Systems - an achievement that I am really proud of, and I would like to teach others. 
+                    Currently, a first-year doctoral student of Learning and Teaching in STEM with a focus on Engineering and Technology Education at North Carolina State University. I was previously a Computer Science teacher at the International Leadership of Texas. My academic history began with a bachelor's degree in Agricultural economics from the University of Benin, followed by a master's in information systems from Central Michigan University, where I specialized in data analytics and enterprise resource planning.
                 </p>
                 <motion.ul
                 initial={{opacity: 0}}

@@ -20,7 +20,7 @@ const NotFound = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gray-100 text-gray-900 flex flex-col items-center justify-center p-8 overflow-hidden relative">
+    <main className="min-h-screen bg-white dark:bg-darkTheme text-gray-900 dark:text-white flex flex-col items-center justify-center p-8 overflow-hidden relative">
       {/* Animated background objects */}
       <FloatingObjects />
       

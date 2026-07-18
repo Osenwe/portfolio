@@ -615,7 +615,7 @@ const CaesarCipherChallenge = () => {
 
   if (!currentChallenge) {
     return (
-      <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      <div className={`min-h-screen ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             <h1 className="text-3xl font-bold mb-4">Loading Caesar Cipher Challenge...</h1>
@@ -628,7 +628,7 @@ const CaesarCipherChallenge = () => {
   const frequencyData = currentChallenge.cipher ? analyzeFrequency(currentChallenge.cipher) : null;
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`min-h-screen ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         
         {/* Header */}

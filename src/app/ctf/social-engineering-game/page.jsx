@@ -440,7 +440,7 @@ The email mentions a real client and uses your company's actual project manageme
   if (gameComplete) {
     const accuracy = Math.round((score / scenarios.length) * 100);
     return (
-      <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      <div className={`min-h-screen ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
         <div className="container mx-auto px-4 py-8 max-w-4xl">
           <div className={`text-center p-8 rounded-lg border shadow-xl ${
             isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
@@ -498,7 +498,7 @@ The email mentions a real client and uses your company's actual project manageme
   // Game Start Screen
   if (!gameStarted) {
     return (
-      <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      <div className={`min-h-screen ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
         <div className="container mx-auto px-4 py-8 max-w-4xl">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
@@ -576,7 +576,7 @@ The email mentions a real client and uses your company's actual project manageme
 
   // Main Game Screen
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`min-h-screen ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         
         {/* Header with Progress */}

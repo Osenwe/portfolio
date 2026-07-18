@@ -31,8 +31,8 @@ const Contact = () => {
     setStatus({ submitting: true, submitted: false, info: { error: false, msg: null } });
 
     try {
-      // Replace with your actual Django API endpoint
-      const response = await fetch("http://localhost:8000/api/contact/submit/", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/contact/submit/`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -114,49 +114,59 @@ const Contact = () => {
         className='max-w-2xl mx-auto'>
         <div className='grid grid-cols-auto gap-6 mt-10 mb-8'>
 
-          <motion.input
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ delay: 1.1, duration: 0.6 }}
-            type="text" 
-            placeholder='Enter your name' 
-            required
-            name='name'
-            value={formData.name}
-            onChange={handleChange}
-            className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90'
-          />
+          <div className='flex-1'>
+            <label htmlFor='contact-name' className='sr-only'>Your name</label>
+            <motion.input
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: 1.1, duration: 0.6 }}
+              id='contact-name'
+              type="text"
+              placeholder='Enter your name'
+              required
+              name='name'
+              value={formData.name}
+              onChange={handleChange}
+              className='w-full p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90 focus-visible:ring-2 focus-visible:ring-blue-500'
+            />
+          </div>
 
-          <motion.input
-            initial={{ x: 50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-            type="email" 
-            placeholder='Enter your email' 
-            required
-            name='email'
-            value={formData.email}
-            onChange={handleChange}
-            className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90'
-          />
+          <div className='flex-1'>
+            <label htmlFor='contact-email' className='sr-only'>Your email</label>
+            <motion.input
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+              id='contact-email'
+              type="email"
+              placeholder='Enter your email'
+              required
+              name='email'
+              value={formData.email}
+              onChange={handleChange}
+              className='w-full p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90 focus-visible:ring-2 focus-visible:ring-blue-500'
+            />
+          </div>
 
         </div>
-        <motion.textarea 
+        <label htmlFor='contact-message' className='sr-only'>Your message</label>
+        <motion.textarea
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.6 }}
-          rows='6' 
-          placeholder='Enter your message' 
+          id='contact-message'
+          rows='6'
+          placeholder='Enter your message'
           required
           name='message'
           value={formData.message}
           onChange={handleChange}
-          className='w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90'
+          className='w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90 focus-visible:ring-2 focus-visible:ring-blue-500'
         ></motion.textarea>
 
         <motion.button
-          onClick={() => handleFormSubmitTracking(project)} 
-          whileHover={{ scale: 1.05 }} 
+          onClick={handleFormSubmitTracking}
+          whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
           type='submit'
           disabled={status.submitting}

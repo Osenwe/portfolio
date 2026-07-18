@@ -28,3 +28,28 @@ html {
 body {
   min-height: -webkit-fill-available;
 }
+
+/*
+ * Make light/dark mode switching feel seamless everywhere.
+ * Scoped to color-related properties only (never transform/opacity) so it
+ * never fights framer-motion's own animations. Element selectors here have
+ * lower specificity than any Tailwind transition/duration utility class, so
+ * components that already declare their own transition timing keep it —
+ * this is purely a fallback for the many elements that don't.
+ */
+body,
+main,
+nav,
+header,
+footer,
+section,
+div,
+button,
+a,
+input,
+textarea,
+select {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}

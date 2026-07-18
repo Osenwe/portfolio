@@ -58,16 +58,18 @@ const Services = () => {
                     <p className='text-sm text-gray-600 leading-5 dark:text-white/80'>
                         {description}
                     </p>
-                    <a href={link} className='flex items-center gap-2 text-sm mt-5'>
-                        Read more 
-                        {isValidImage(assets.right_arrow) ? (
-                            <Image 
-                                src={assets.right_arrow} 
-                                alt="Right arrow icon" 
-                                className='w-4'
-                            />
-                        ) : null}
-                    </a>
+                    {link && (
+                        <a href={link} className='flex items-center gap-2 text-sm mt-5'>
+                            Read more
+                            {isValidImage(assets.right_arrow) ? (
+                                <Image
+                                    src={assets.right_arrow}
+                                    alt="Right arrow icon"
+                                    className='w-4'
+                                />
+                            ) : null}
+                        </a>
+                    )}
                 </motion.div>
             ))}
         </motion.div>

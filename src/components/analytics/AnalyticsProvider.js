@@ -7,7 +7,7 @@ import ConsentBanner from './ConsentBanner'
 import { initializeEssentialAnalytics, trackEssentialPageView } from '@/utils/analytics/tracking'
 import { getAnalyticsConsent, setAnalyticsConsent } from '@/utils/cookies'
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID
 
 function AnalyticsCore() {
   const [consent, setConsent] = useState(false)
@@ -23,7 +23,7 @@ function AnalyticsCore() {
       setBannerVisible(false)
     } else {
       setConsent(false)
-      setBannerVisible(true)
+      setBannerVisible(false) // I have sent the banner to not show at all times
     }
     
     initializeEssentialAnalytics();

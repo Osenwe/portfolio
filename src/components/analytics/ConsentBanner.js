@@ -52,13 +52,13 @@ export default function ConsentBanner({ onAccept, onDecline, onClose }) {
               onClick={onDecline}
               className="px-4 py-2 border border-gray-600 rounded-md hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors"
             >
-              Basic Analytics
+              Analytics I
             </button>
             <button
               onClick={onAccept}
               className="px-4 py-2 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors"
             >
-              Enhanced Analytics
+              Analytics II
             </button>
           </div>
         </div>

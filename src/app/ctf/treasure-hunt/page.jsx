@@ -518,7 +518,7 @@ const InspectElementTreasureHunt = () => {
 
   if (!currentChallenge) {
     return (
-      <div className={`min-h-screen flex items-center justify-center ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      <div className={`min-h-screen flex items-center justify-center ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-4">Loading Treasure Hunt...</h1>
           <button onClick={resetHunt} className="px-6 py-2 bg-blue-600 text-white rounded-lg">
@@ -530,7 +530,7 @@ const InspectElementTreasureHunt = () => {
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
       <div className="container mx-auto px-4 py-8 max-w-5xl">
         
         {/* Header */}

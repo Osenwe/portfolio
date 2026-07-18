@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Your existing config settings
-  
+
+  // Hide the Next.js dev tools indicator badge
+  devIndicators: false,
+
   // Add redirects for sitemap
   async redirects() {
     return [

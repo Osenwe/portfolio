@@ -1020,7 +1020,7 @@ const URLParameterLab = () => {
   // Error display component
   if (error) {
     return (
-      <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      <div className={`min-h-screen ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
         <div className="container mx-auto px-4 py-8 max-w-4xl">
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
             <strong className="font-bold">Error: </strong>
@@ -1040,7 +1040,7 @@ const URLParameterLab = () => {
   // Loading state
   if (!challenge) {
     return (
-      <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      <div className={`min-h-screen ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             <h1 className="text-3xl font-bold mb-4">Loading URL Parameter Lab...</h1>
@@ -1052,7 +1052,7 @@ const URLParameterLab = () => {
   }
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`min-h-screen ${isDarkMode ? 'bg-darkTheme text-white' : 'bg-white text-gray-900'}`}>
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         
         {/* Header */}

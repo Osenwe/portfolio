@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { assets, researchPapers } from '@/assets/assets'
 import Image from 'next/image'
 import { motion } from "framer-motion"
@@ -15,7 +15,22 @@ const isValidImage = (src) => src && src !== "";
 
 const ResearchPapers = () => {
   const [slidesPerView, setSlidesPerView] = useState(3)
-  
+  const [isAutoplayPaused, setIsAutoplayPaused] = useState(false)
+  const swiperRef = useRef(null)
+
+  const toggleAutoplay = () => {
+    const swiper = swiperRef.current
+    if (!swiper) return
+
+    if (isAutoplayPaused) {
+      swiper.autoplay.start()
+    } else {
+      swiper.autoplay.stop()
+    }
+    setIsAutoplayPaused(!isAutoplayPaused)
+  }
+
+
   // Track research section view when component mounts
   useEffect(() => {
     // Track basic page view (all users)
@@ -96,16 +111,33 @@ const ResearchPapers = () => {
           }
         `}</style>
         
+        <button
+          onClick={toggleAutoplay}
+          aria-label={isAutoplayPaused ? 'Play carousel autoplay' : 'Pause carousel autoplay'}
+          className='absolute top-0 right-0 z-10 p-2 rounded-full border border-gray-400 hover:bg-lightHover dark:border-white/50 dark:hover:bg-darkHover transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500'
+        >
+          {isAutoplayPaused ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M6.3 2.8A1 1 0 004.8 3.7v12.6a1 1 0 001.5.9l11-6.3a1 1 0 000-1.8l-11-6.3z" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M6 4h3v12H6V4zm5 0h3v12h-3V4z" />
+            </svg>
+          )}
+        </button>
+
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={slidesPerView}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ 
+          autoplay={{
             delay: 5000,
             disableOnInteraction: false
           }}
+          onSwiper={(swiper) => { swiperRef.current = swiper }}
           className='research-carousel !pb-12'
         >
           {researchPapers.map((paper, index) => (

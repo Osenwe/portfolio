@@ -3,21 +3,18 @@ import { CalendarIcon, ClockIcon, TagIcon } from '@heroicons/react/24/outline';
 
 const BlogCard = ({ post, isDarkMode }) => {
   return (
-    <Link href={`/blog/${post.slug}`}>
+    <Link href={`/blog/${post.slug}`} className={`block rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500`}>
       <div className={`rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer h-full flex flex-col ${
-        isDarkMode 
-          ? 'bg-gray-800 border border-gray-700 hover:border-purple-500 shadow-lg hover:shadow-purple-500/20' 
+        isDarkMode
+          ? 'bg-gray-800 border border-gray-700 hover:border-purple-500 shadow-lg hover:shadow-purple-500/20'
           : 'bg-white hover:shadow-xl shadow-md'
       }`}>
-        {/* Cover Image */}
-        {post.coverImage && (
-          <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-500 to-indigo-600">
-            {/* Placeholder gradient until you add actual images */}
-            <div className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold opacity-20">
-              {post.title.charAt(0)}
-            </div>
+        {/* Cover image placeholder (gradient with post initial) - no real cover images in the data yet */}
+        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-500 to-indigo-600">
+          <div className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold opacity-20">
+            {post.title.charAt(0)}
           </div>
-        )}
+        </div>
 
         {/* Content */}
         <div className="p-6 flex-1 flex flex-col">

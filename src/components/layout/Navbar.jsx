@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux'
 const Navbar = () => {
     const [isScroll, setIsScroll] = useState(false)
     const [isClient, setIsClient] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
     const sideMenuRef = useRef();
     const navbarHeight = 64;
     const router = useRouter()
@@ -30,10 +31,12 @@ const Navbar = () => {
 
     const openMenu = () => {
         sideMenuRef.current.style.transform = 'translateX(-16rem)'
+        setIsMenuOpen(true)
     }
-    
+
     const closeMenu = () => {
         sideMenuRef.current.style.transform = 'translateX(16rem)'
+        setIsMenuOpen(false)
     }
 
     // Handle theme toggle
@@ -109,7 +112,7 @@ const Navbar = () => {
         }
         
         // Close mobile menu if open
-        if (sideMenuRef.current.style.transform === 'translateX(-16rem)') {
+        if (isMenuOpen) {
             closeMenu();
         }
     };
@@ -120,7 +123,6 @@ const Navbar = () => {
         { id: 'about', label: 'About me', href: '/#about' },
         { id: 'services', label: 'Services', href: '/#services' },
         { id: 'work', label: 'My Work', href: '/#work' },
-        { id: 'research', label: 'Research Papers', href: '/#research' },
         { id: 'contact', label: 'Contact me', href: '/#contact' }
     ];
 
@@ -132,7 +134,7 @@ const Navbar = () => {
                 <Image src={assets.header_bg_color} alt='' className='w-full' />
             </div>
 
-            <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 pt-safe flex items-center justify-between z-50 ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
+            <nav aria-hidden="true" className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 pt-safe flex items-center justify-between z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-in-out ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
                 <a href="/">
                     <div className="w-28 h-8 bg-gray-200 rounded animate-pulse"></div>
                 </a>
@@ -182,7 +184,7 @@ const Navbar = () => {
             <Image src={assets.header_bg_color} alt='' className='w-full' />
         </div>
 
-        <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 pt-safe flex items-center justify-between z-50 ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
+        <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 pt-safe flex items-center justify-between z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-in-out ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
             {/* Logo - always goes to home */}
             <Link href="/">
                 <Image 
@@ -197,8 +199,8 @@ const Navbar = () => {
             <ul className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${isScroll ? "" : "bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent"} `}>
                 {navItems.map((item) => (
                     <li key={item.id}>
-                        <a 
-                            className='font-Ovo cursor-pointer hover:text-blue-600 transition-colors' 
+                        <a
+                            className='font-Ovo cursor-pointer hover:text-blue-600 transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500'
                             onClick={(e) => handleNavigation(e, item.id)}
                             href={item.href}
                         >
@@ -209,38 +211,52 @@ const Navbar = () => {
             </ul>
 
             <div className='flex items-center gap-4'>
-                <button onClick={handleThemeToggle}>
+                <button
+                    onClick={handleThemeToggle}
+                    aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                    className='rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500'
+                >
                     <Image src={isDarkMode ? assets.sun_icon : assets.moon_icon} alt='' className='w-6' />
                 </button>
 
-                <a 
-                    href="/#contact" 
+                <a
+                    href="/#contact"
                     onClick={(e) => handleNavigation(e, "contact")}
-                    className='hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer'
+                    className='hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500'
                 >
-                    Contact 
+                    Contact
                     <Image src={isDarkMode ? assets.arrow_icon_dark : assets.arrow_icon} alt="" className='w-3'/>
                 </a>
 
-                <button className='block md:hidden ml-3' onClick={openMenu}>
+                <button
+                    className='block md:hidden ml-3 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500'
+                    onClick={openMenu}
+                    aria-label='Open menu'
+                    aria-expanded={isMenuOpen}
+                    aria-controls='mobile-menu'
+                >
                     <Image src={isDarkMode ? assets.menu_white : assets.menu_black} alt='' className='w-6' />
                 </button>
             </div>
 
             {/* Mobile menu */}
-            <ul ref={sideMenuRef} className='flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 dark:bg-darkHover dark:text-white pt-safe'>
-                <div className='absolute right-6 top-6 mt-safe' onClick={closeMenu}>
+            <ul id='mobile-menu' ref={sideMenuRef} className='flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 dark:bg-darkHover dark:text-white pt-safe'>
+                <button
+                    className='absolute right-6 top-6 mt-safe rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500'
+                    onClick={closeMenu}
+                    aria-label='Close menu'
+                >
                     <Image src={isDarkMode ? assets.close_white : assets.close_black} alt='' className='w-5 cursor-pointer' />
-                </div>
+                </button>
 
                 {navItems.map((item) => (
                     <li key={item.id}>
-                        <a 
-                            className='font-Ovo cursor-pointer hover:text-blue-600 transition-colors' 
+                        <a
+                            className='font-Ovo cursor-pointer hover:text-blue-600 transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500'
                             onClick={(e) => {
                                 handleNavigation(e, item.id);
                                 closeMenu();
-                            }} 
+                            }}
                             href={item.href}
                         >
                             {item.label}

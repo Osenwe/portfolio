@@ -6,11 +6,17 @@ import { motion } from "motion/react"
 import { portfolioEvents} from '@/utils/analytics/tracking'
 
 const Work = ({isDarkMode}) => {
-  
+
   // Function to handle project clicks
   const handleProjectClick = (project) => {
     // This will only track detailed interactions if the user gave consent
     portfolioEvents.clickProject(project.title, project.link || 'internal-portfolio-view');
+  };
+
+  // Normalize a project link into a real, navigable URL (data may omit the protocol)
+  const getProjectHref = (link) => {
+    if (!link || link === '#') return null;
+    return /^https?:\/\//i.test(link) ? link : `https://${link}`;
   };
   
   return (
@@ -46,13 +52,19 @@ const Work = ({isDarkMode}) => {
     whileInView={{ opacity: 1 }}
     transition={{ delay: 0.9, duration: 0.6 }}
     className='grid grid-cols-auto my-10 gap-5 dark:text-black'>
-        {workData.map((project, index)=>(
-            <motion.div
-            onClick={() => handleProjectClick(project)} 
+        {workData.map((project, index)=>{
+            const href = getProjectHref(project.link);
+            return (
+            <motion.a
+            href={href || undefined}
+            target={href ? '_blank' : undefined}
+            rel={href ? 'noopener noreferrer' : undefined}
+            aria-label={href ? `View ${project.title} (opens in a new tab)` : project.title}
+            onClick={() => handleProjectClick(project)}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             key={index}
-            className='aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group'
+            className='block aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500'
             style={{backgroundImage: `url(${project.bgImage})`}}>
                 <div className='bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7'>
                     <div>
@@ -63,17 +75,18 @@ const Work = ({isDarkMode}) => {
                         <Image src={assets.send_icon} alt='send icon' className='w-5'/>
                     </div>
                 </div>
-                
-            </motion.div>
-        ))}
+
+            </motion.a>
+            );
+        })}
     </motion.div>
 
-    <motion.a 
+    <motion.a
     onClick={() => portfolioEvents.clickProject('Show More Projects', 'view-all')} // Track "Show more" clicks
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     transition={{ delay: 1.1, duration: 0.5 }}
-    href="" className='w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover'>
+    href="https://github.com/Osenwe" target="_blank" rel="noopener noreferrer" className='w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500'>
         Show more 
         <Image src={isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold} alt='Right arrow' className='w-4'/>
     </motion.a>

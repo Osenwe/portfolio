@@ -70,9 +70,9 @@ const BlogPage = () => {
     <>
     <Navbar />
     <main className={`min-h-screen py-12 pt-20 ${
-      isDarkMode 
-        ? 'bg-gray-900' 
-        : 'bg-gray-50'
+      isDarkMode
+        ? 'bg-darkTheme'
+        : 'bg-white'
     }`}>
       <div className="container mx-auto px-4">
         {/* Header */}

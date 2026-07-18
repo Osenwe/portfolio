@@ -13,9 +13,9 @@ export default function PrivacyPolicy() {
     <>
       <Navbar />
       <main className={`min-h-screen pt-20 ${
-        isDarkMode 
-          ? 'bg-gray-900' 
-          : 'bg-gray-50'
+        isDarkMode
+          ? 'bg-darkTheme'
+          : 'bg-white'
       }`}>
         <div className="container mx-auto px-4 py-16 max-w-4xl">
           <h1 className={`text-4xl font-bold mb-8 text-center ${

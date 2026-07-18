@@ -171,9 +171,9 @@ export default function ResourceCard({ resource }) {
         {resource.description.length > 120 && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className={`text-sm font-medium mb-4 ${
-              isDarkMode 
-                ? 'text-blue-400 hover:text-blue-300' 
+            className={`text-sm font-medium mb-4 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 ${
+              isDarkMode
+                ? 'text-blue-400 hover:text-blue-300'
                 : 'text-blue-600 hover:text-blue-700'
             }`}
           >
@@ -373,11 +373,7 @@ export default function ResourceCard({ resource }) {
             <Link
               href={`/resources/${resource.id}`}
               onClick={handleViewDetails}
-              className={`flex items-center justify-center w-full px-4 py-3 text-sm font-medium rounded-md transition-colors ${
-                isDarkMode
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                  : 'bg-blue-600 hover:bg-blue-700 text-white'
-              }`}
+              className='flex items-center justify-center w-full px-4 py-3 text-sm font-medium rounded-md transition-colors bg-blue-600 hover:bg-blue-700 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400'
             >
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -399,7 +395,7 @@ export default function ResourceCard({ resource }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => handleLinkClick(link.type, link.url, resource.title)}
-                    className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors group ${
+                    className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500 ${
                       isDarkMode
                         ? 'bg-green-800 hover:bg-green-700 border border-green-700'
                         : 'bg-green-50 hover:bg-green-100 border border-green-200'
@@ -439,7 +435,7 @@ export default function ResourceCard({ resource }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => handleLinkClick(link.type, link.url, resource.title)}
-                  className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors group ${
+                  className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 ${
                     isDarkMode
                       ? 'bg-gray-700 hover:bg-gray-600'
                       : 'bg-gray-50 hover:bg-gray-100'
