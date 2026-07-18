@@ -184,19 +184,29 @@ export default function MessagesPageClient() {
     }
     const updates = STATUS_UPDATES[type];
     if (!updates) return;
-    await updateMessage(id, updates);
-    applyLocalUpdate([id], updates);
-    showToast(ACTION_TOAST_LABEL[type], 'success');
+    try {
+      await updateMessage(id, updates);
+      applyLocalUpdate([id], updates);
+      showToast(ACTION_TOAST_LABEL[type], 'success');
+    } catch (error) {
+      console.error(`Failed to ${type} message`, error);
+      showToast('Something went wrong. Please try again.', 'error');
+    }
   };
 
   const runBulkStatusUpdate = async (type) => {
     const ids = [...selectedIds];
     if (ids.length === 0) return;
     const updates = STATUS_UPDATES[type];
-    await bulkUpdateMessages(ids, updates);
-    applyLocalUpdate(ids, updates);
-    showToast(`${ACTION_TOAST_LABEL[type]} for ${ids.length} message${ids.length > 1 ? 's' : ''}`, 'success');
-    clearSelection();
+    try {
+      await bulkUpdateMessages(ids, updates);
+      applyLocalUpdate(ids, updates);
+      showToast(`${ACTION_TOAST_LABEL[type]} for ${ids.length} message${ids.length > 1 ? 's' : ''}`, 'success');
+      clearSelection();
+    } catch (error) {
+      console.error(`Failed to bulk ${type} messages`, error);
+      showToast('Something went wrong. Please try again.', 'error');
+    }
   };
 
   const handleBulkDeleteRequest = () => {
@@ -207,16 +217,21 @@ export default function MessagesPageClient() {
   const confirmDelete = async () => {
     if (!deleteTarget) return;
     setIsDeleting(true);
-    if (deleteTarget.type === 'single') {
-      await deleteMessage(deleteTarget.id);
-      setMessages((prev) => prev.filter((m) => m.id !== deleteTarget.id));
-      showToast('Message deleted', 'success');
-    } else {
-      await bulkDeleteMessages(deleteTarget.ids);
-      const idSet = new Set(deleteTarget.ids);
-      setMessages((prev) => prev.filter((m) => !idSet.has(m.id)));
-      showToast(`${deleteTarget.ids.length} messages deleted`, 'success');
-      clearSelection();
+    try {
+      if (deleteTarget.type === 'single') {
+        await deleteMessage(deleteTarget.id);
+        setMessages((prev) => prev.filter((m) => m.id !== deleteTarget.id));
+        showToast('Message deleted', 'success');
+      } else {
+        await bulkDeleteMessages(deleteTarget.ids);
+        const idSet = new Set(deleteTarget.ids);
+        setMessages((prev) => prev.filter((m) => !idSet.has(m.id)));
+        showToast(`${deleteTarget.ids.length} messages deleted`, 'success');
+        clearSelection();
+      }
+    } catch (error) {
+      console.error('Failed to delete message(s)', error);
+      showToast('Something went wrong. Please try again.', 'error');
     }
     setIsDeleting(false);
     setDeleteTarget(null);
