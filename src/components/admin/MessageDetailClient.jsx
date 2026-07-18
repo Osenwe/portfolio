@@ -70,14 +70,22 @@ export default function MessageDetailClient({ id }) {
         return;
       }
 
-      // Opening a message marks it read, same as most email clients.
-      if (found.status === 'unread') {
-        const updated = await updateMessage(id, { status: 'read' });
-        if (isMounted) setMessage(updated);
-      } else {
-        setMessage(found);
-      }
+      // Show the message right away - don't gate rendering on the
+      // mark-as-read side effect below.
+      setMessage(found);
       setIsLoading(false);
+
+      // Opening a message marks it read, same as most email clients. Fired
+      // in the background: if this PATCH fails, the message still displays
+      // (it just stays "unread") instead of the page getting stuck loading.
+      if (found.status === 'unread') {
+        try {
+          const updated = await updateMessage(id, { status: 'read' });
+          if (isMounted) setMessage(updated);
+        } catch (error) {
+          console.error('Failed to mark message as read', error);
+        }
+      }
     }
 
     // Prev/next navigation is a nice-to-have that needs the full list -
@@ -105,18 +113,23 @@ export default function MessageDetailClient({ id }) {
     async (type) => {
       if (!message) return;
 
-      if (type === 'delete') {
-        await deleteMessage(message.id);
-        showToast('Message deleted', 'success');
-        router.push('/admin/messages');
-        return;
-      }
+      try {
+        if (type === 'delete') {
+          await deleteMessage(message.id);
+          showToast('Message deleted', 'success');
+          router.push('/admin/messages');
+          return;
+        }
 
-      const updates = STATUS_UPDATES[type];
-      if (!updates) return;
-      const updated = await updateMessage(message.id, updates);
-      setMessage(updated);
-      showToast(ACTION_TOAST_LABEL[type], 'success');
+        const updates = STATUS_UPDATES[type];
+        if (!updates) return;
+        const updated = await updateMessage(message.id, updates);
+        setMessage(updated);
+        showToast(ACTION_TOAST_LABEL[type], 'success');
+      } catch (error) {
+        console.error(`Failed to ${type} message`, error);
+        showToast('Something went wrong. Please try again.', 'error');
+      }
     },
     [message, router, showToast]
   );
