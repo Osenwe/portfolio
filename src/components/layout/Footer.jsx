@@ -57,12 +57,12 @@ const Footer = ({isDarkMode}) => {
           {/* Internal Pages Links */}
           <div className='flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto'>
             {/* Special Games Link with Enhanced Design - Mobile Optimized */}
-            <Link 
+            {/*<Link 
               href="/games" 
               onClick={handleGamesClick}
               className='group relative inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-xs sm:max-w-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
             >
-              {/* Game Controller Icon */}
+              {/* Game Controller Icon *}
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 className="h-5 w-5 sm:h-4 sm:w-4 group-hover:animate-pulse flex-shrink-0" 
@@ -80,13 +80,13 @@ const Footer = ({isDarkMode}) => {
               
               <span className='relative text-base sm:text-sm'>
                 Games
-                {/* Sparkle effect - hidden on very small screens */}
+                {/* Sparkle effect - hidden on very small screens *}
                 <span className='hidden sm:block absolute -top-1 -right-1 w-2 h-2 bg-yellow-300 rounded-full animate-ping opacity-75'></span>
               </span>
               
-              {/* Hover gradient overlay */}
+              {/* Hover gradient overlay *}
               <div className='absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 transform -skew-x-12'></div>
-            </Link>
+            </Link> */}
 
             {/* Resources Link with Enhanced Design - Mobile Optimized */}
             <Link 

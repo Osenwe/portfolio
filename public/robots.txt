@@ -10,6 +10,11 @@ Allow: /
 # Specify the sitemap location
 Sitemap: https://benyeogorosenwe.com/sitemap.xml
 
-# Disallow any sensitive areas (if applicable)
-# Disallow: /admin/
-# Disallow: /private/
+# Note: the private /admin dashboard is intentionally NOT listed here.
+# Nothing on the site links to it, so crawlers won't discover it on their
+# own - and listing it here would just publish the path to anyone reading
+# this file. Each /admin page already carries its own
+# <meta name="robots" content="noindex, nofollow"> tag (see
+# src/app/admin/layout.jsx), which is what actually stops a crawler that
+# does reach it from indexing it. Neither of these is a security control -
+# see the TODO(auth) comments in src/app/admin/layout.jsx.

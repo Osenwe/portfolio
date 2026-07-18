@@ -103,7 +103,7 @@ const Contact = () => {
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.7, duration: 0.5 }}
         className='text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo'>
-        I'd love to hear from you! If you have any questions, comments, or feedback, please use the form below.
+        You can reachout to me by filling out the form below or sending me an email directly at <a href="mailto:benyeogorosenwe@gmail.com" className='text-blue-500 hover:underline'>benyeogorosenwe@gmail.com</a>
       </motion.p>
 
       <motion.form
