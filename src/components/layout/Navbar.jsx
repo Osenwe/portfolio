@@ -134,7 +134,7 @@ const Navbar = () => {
                 <Image src={assets.header_bg_color} alt='' className='w-full' />
             </div>
 
-            <nav aria-hidden="true" className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 pt-safe flex items-center justify-between z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-in-out ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
+            <nav aria-hidden="true" className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 pt-safe flex items-center justify-between z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-in-out ${isScroll ? "bg-white shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
                 <a href="/">
                     <div className="w-28 h-8 bg-gray-200 rounded animate-pulse"></div>
                 </a>
@@ -184,7 +184,7 @@ const Navbar = () => {
             <Image src={assets.header_bg_color} alt='' className='w-full' />
         </div>
 
-        <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 pt-safe flex items-center justify-between z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-in-out ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
+        <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 pt-safe flex items-center justify-between z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-in-out ${isScroll ? "bg-white shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
             {/* Logo - always goes to home */}
             <Link href="/">
                 <Image 
