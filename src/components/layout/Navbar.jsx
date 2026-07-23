@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import Logo from './Logo'
 
 const Navbar = () => {
     const [isScroll, setIsScroll] = useState(false)
@@ -186,14 +187,7 @@ const Navbar = () => {
 
         <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 pt-safe flex items-center justify-between z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-in-out ${isScroll ? "bg-white shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
             {/* Logo - always goes to home */}
-            <Link href="/">
-                <Image 
-                    src={isDarkMode ? assets.logo_dark : assets.logo} 
-                    alt='' 
-                    className='w-28 cursor-pointer mr-14'
-                    priority
-                />
-            </Link>
+            <Logo className='w-28 mr-14' priority />
 
             {/* Desktop Navigation */}
             <ul className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${isScroll ? "" : "bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent"} `}>
